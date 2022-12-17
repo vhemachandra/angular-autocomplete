@@ -1,0 +1,42 @@
+<div class="wrapper" [ngClass]="{ 'is-loading': loadStatus }">
+  <div class="control">
+    <input
+      type="text"
+      class="input"
+      list="listitems"
+      autocomplete="on"
+      (keyup)="onChangeHandler($event)"
+    />
+  </div>
+  <div class="list is-hoverable" *ngIf="options.length > 0">
+    <datalist id="listitems" class="list-item">
+      <option
+        *ngFor="let item of options"
+        value="{{ item }}"
+        (onSelect)="onSelectHandler($event)"
+      ></option>
+    </datalist>
+  </div>
+</div>
+
+<!-- <div class="list is-hoverable" *ngIf="options.length > 0">
+  <div id="listitems" class="list-item">
+    <div *ngFor="let item of options" (onSelect)="onSelectHandler($event)">
+      {{ item }}
+    </div>
+  </div>
+</div> -->
+
+<!-- nvm use 16.13.1
+
+npm install @angular/cli@11.1.2
+
+npm install @angular/http@latest
+
+ng new autocomplete
+
+ng generate component autocomplete
+
+add HttpClientModule in app.module.ts
+
+ng serve -->
